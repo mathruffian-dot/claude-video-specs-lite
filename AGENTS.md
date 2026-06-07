@@ -66,7 +66,7 @@
 | Node.js 18+ | `node --version` | ✅ Playwright |
 | ffmpeg | `ffmpeg -version` | ✅ 音視合成 |
 | Playwright | 檢查 `%TEMP%/cvs-render/node_modules/playwright` | ⚠️ 渲染才需要 |
-| 源石黑體 | `ls ~/AppData/Local/Microsoft/Windows/Fonts/GenSekiGothic2TW-H.otf`（Win）或 `~/Library/Fonts/`（Mac） | ⚠️ 視覺一致 |
+| 源石黑體 | `ls ~/AppData/Local/Microsoft/Windows/Fonts/GenSekiGothic2TW-H.otf`（Win）或 `~/Library/Fonts/`（Mac） | ✅ 視覺一致（**預設自動上網安裝**）|
 
 ### 缺少的元件，逐項詢問
 
@@ -87,7 +87,9 @@
 | Node.js | 提示去 https://nodejs.org（不自動裝）|
 | ffmpeg | Win: `winget install Gyan.FFmpeg`；Mac: `brew install ffmpeg`；Linux: `apt install ffmpeg` |
 | Playwright | 跑 `install/setup_playwright.sh` |
-| 源石黑體 | 跑 `install/install_fonts.sh`（從 ButTaiwan/genseki-font 下載）|
+| 源石黑體 | 跑 `install/install_fonts.sh`（bash）或 `install/install_all.ps1`（PowerShell）；自動從 ButTaiwan/genseki-font 的 `otf/TW/` 下載 H/B/M 三字重 |
+
+> **字體自動安裝（免詢問）**：源石黑體系列為免費、開源、免 API key。若偵測到系統缺字，**直接自動上網安裝**（bash 跑 `install/install_fonts.sh`、Windows 無 bash 跑 `install/install_all.ps1`、或 `python install/setup.py fonts`），會從 [ButTaiwan/genseki-font](https://github.com/ButTaiwan/genseki-font) 的 `otf/TW/` 下載 H/B/M 三個字重並安裝到系統字體資料夾，同時複製一份到 repo 的 `assets/fonts/` 供範例 HTML 的 `@font-face` 引用。此步驟不需向使用者確認。
 
 完成檢查後，告訴使用者**全部就緒**，準備進入階段 2。
 

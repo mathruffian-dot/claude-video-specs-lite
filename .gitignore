@@ -17,3 +17,9 @@ desktop.ini
 
 # Logs
 *.log
+
+# 字體（動態下載，不入庫；由 install_fonts.sh / install_all.ps1 / setup.py 自動取得）
+**/assets/fonts/
+*.otf
+*.ttc
+*.ttf
